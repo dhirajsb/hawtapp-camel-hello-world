@@ -1,8 +1,8 @@
-# Camel CDI Hello world QuickStart
+# Camel CDI Hello World QuickStart
 
 This quickstart shows a simple Apache Camel application that logs a message to the server log every 5th second.
 
-This example is implemented using Camel CDI. The Camel routes are setup in the classe `MyRoutes` using an injected bean of class `SomeBean`, which counts the number of times it is invoked.
+This example is implemented using Camel CDI. The Camel routes are setup in the class `MyRoutes` using an injected bean of class `SomeBean`, which counts the number of times it is invoked.
 
 This example uses a timer to trigger every 5th second, and then writes a message to the server log.
 
