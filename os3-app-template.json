@@ -2,10 +2,10 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "fuse-karaf",
+    "name": "fuse-hawt-app",
     "annotations": {
       "description": "This example shows how to create an S2I based Karaf based Fuse application",
-      "tags": "instant-app,fuse,karaf",
+      "tags": "instant-app,fuse,hawt-app",
       "iconClass": "icon-java"
     },
     "creationTimestamp": null
@@ -15,15 +15,15 @@
   },
   "parameters": [{
     "name": "APP_NAME",
-    "value": "camel-hello-world",
+    "value": "hawtapp-camel-hello-world",
     "description": "Application Name"
   }, {
     "name": "GIT_REPO",
-    "value": "https://github.com/dhirajsb/camel-hello-world.git",
+    "value": "https://github.com/dhirajsb/hawtapp-camel-hello-world.git",
     "description": "git repository"
   }, {
     "name": "MAVEN_ARGS",
-    "value": "install karaf:assembly karaf:archive -DskipTests -e -X",
+    "value": "package hawt-app:build -DskipTests -e",
     "description": "Arguments passed to mvn in the build"
   }, {
     "generate": "expression",
@@ -36,14 +36,14 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "karaf4-sti-${APP_NAME}",
+                "name": "hawt-app-sti-${APP_NAME}",
                 "creationTimestamp": null,
                 "labels": {
                     "app": "${APP_NAME}"
                 }
             },
             "spec": {
-                "dockerImageRepository": "dhirajsb/karaf4-sti"
+                "dockerImageRepository": "dhirajsb/hawt-app-sti"
             },
             "status": {
                 "dockerImageRepository": ""
@@ -104,7 +104,7 @@
                     "sourceStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "karaf4-sti-${APP_NAME}:latest"
+                            "name": "hawt-app-sti-${APP_NAME}:latest"
                         },
                         "incremental": true,
                         "forcePull": true,
