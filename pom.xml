@@ -32,6 +32,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.compiler.plugin>2.3.1</version.compiler.plugin>
     <version.maven.resources.plugin>2.7</version.maven.resources.plugin>
+    <version.hawt-app-maven-plugin>1.1</version.hawt-app-maven-plugin>
     <version.exec-maven-plugin>1.2.1</version.exec-maven-plugin>
 
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -105,7 +106,7 @@
         <plugin>
           <groupId>org.jboss.hawt.app</groupId>
           <artifactId>hawt-app-maven-plugin</artifactId>
-          <version>1.0-SNAPSHOT</version>
+          <version>${version.hawt-app-maven-plugin}</version>
           <configuration>
             <main>org.apache.camel.cdi.Main</main>
           </configuration>
@@ -135,5 +136,12 @@
       </plugin>
     </plugins>
   </build>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>fusesource</id>
+      <url>http://repo.fusesource.com/nexus/content/groups/m2-proxy/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>
