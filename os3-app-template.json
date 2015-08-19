@@ -36,14 +36,14 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "hawt-app-sti-${APP_NAME}",
+                "name": "fuse-sti-${APP_NAME}",
                 "creationTimestamp": null,
                 "labels": {
                     "app": "${APP_NAME}"
                 }
             },
             "spec": {
-                "dockerImageRepository": "dhirajsb/hawt-app-sti"
+                "dockerImageRepository": "dhirajsb/fuse-sti"
             },
             "status": {
                 "dockerImageRepository": ""
@@ -104,7 +104,7 @@
                     "sourceStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "hawt-app-sti-${APP_NAME}:latest"
+                            "name": "fuse-sti-${APP_NAME}:latest"
                         },
                         "incremental": true,
                         "forcePull": true,

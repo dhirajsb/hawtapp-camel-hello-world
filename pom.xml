@@ -132,7 +132,7 @@
               <image>
                 <name>${project.groupId}/${project.artifactId}</name>
                 <build>
-                  <from>dhirajsb/hawt-app-sti</from>
+                  <from>dhirajsb/fuse-sti</from>
                   <assembly>
                     <inline>
                       <fileSets>
