@@ -34,6 +34,7 @@
     <version.maven.resources.plugin>2.7</version.maven.resources.plugin>
     <version.hawt-app-maven-plugin>1.2</version.hawt-app-maven-plugin>
     <version.exec-maven-plugin>1.2.1</version.exec-maven-plugin>
+    <docker.maven.plugin.version>0.13.1</docker.maven.plugin.version>
 
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -119,6 +120,38 @@
           <configuration>
             <mainClass>org.apache.camel.cdi.Main</mainClass>
             <includePluginDependencies>false</includePluginDependencies>
+          </configuration>
+        </plugin>
+        
+        <plugin>
+          <groupId>org.jolokia</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>${docker.maven.plugin.version}</version>
+          <configuration>
+            <images>
+              <image>
+                <name>${project.groupId}/${project.artifactId}</name>
+                <build>
+                  <from>dhirajsb/hawt-app-sti</from>
+                  <assembly>
+                    <inline>
+                      <fileSets>
+                        <fileSet>
+                          <directory>${basedir}/target/hawt-app</directory>
+                          <outputDirectory>.</outputDirectory>
+                        </fileSet>
+                      </fileSets>
+                    </inline>
+                    <basedir>/opt/jboss/${project.artifactId}-${project.version}</basedir>
+                  </assembly>
+                  <cmd>
+                    <exec>
+                      <args>/opt/jboss/${project.artifactId}-${project.version}/bin/run</args>
+                    </exec>
+                   </cmd>
+                </build>
+              </image>
+            </images>
           </configuration>
         </plugin>
       </plugins>
