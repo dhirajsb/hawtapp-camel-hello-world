@@ -143,6 +143,7 @@
                       </fileSets>
                     </inline>
                     <basedir>/opt/jboss/${project.artifactId}-${project.version}</basedir>
+                    <user>jboss:jboss:jboss</user>
                   </assembly>
                   <cmd>
                     <exec>
