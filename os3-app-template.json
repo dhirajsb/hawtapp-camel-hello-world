@@ -4,7 +4,7 @@
   "metadata": {
     "name": "fuse-hawt-app",
     "annotations": {
-      "description": "This example shows how to create an S2I based Karaf based Fuse application",
+      "description": "This example shows how to create an hawt-app/CDI based Fuse application",
       "tags": "instant-app,fuse,hawt-app",
       "iconClass": "icon-java"
     },
