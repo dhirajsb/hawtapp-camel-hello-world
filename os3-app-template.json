@@ -22,6 +22,10 @@
     "value": "https://github.com/dhirajsb/hawtapp-camel-hello-world.git",
     "description": "git repository"
   }, {
+    "name": "OUTPUT_DIR",
+    "value": "./target",
+    "description": "Location in the source tree where the build generates the application assembly"
+  },  {
     "name": "MAVEN_ARGS",
     "value": "package hawt-app:build -DskipTests -e",
     "description": "Arguments passed to mvn in the build"
@@ -116,6 +120,10 @@
                             {
                                 "name": "MAVEN_ARGS",
                                 "value": "${MAVEN_ARGS}"
+                            },
+                            {
+                                "name": "OUTPUT_DIR",
+                                "value": "${OUTPUT_DIR}"
                             }
                         ]
                     }
